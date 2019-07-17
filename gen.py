@@ -23,6 +23,13 @@ pre_work=''' \
             {new_work}
 		</workstage>
 '''
+pre_work_unit=''' \
+<work type="prepare" workers="2" driver="{driver_name}" config="cprefix=test;oprefix=rgwobject;containers=r({c_start},{c_end});objects=r(1,1000);sizes=c(4)KB" >
+				<storage type="s3" config="accesskey={access_key};secretkey={secret_key};endpoint=http://{host}:{port};"/>
+			</work>
+            {new_work}
+            '''
+
 work_desc=''' \
 <work name="{name}" workers="{worker_num}" runtime="300">
 				<storage type="s3" config="accesskey={access_key};secretkey={secret_key};endpoint=http://{host}:{port}" />
@@ -46,12 +53,14 @@ dispose_tmpl=''' \
 		</workstage>
     '''
 hosts=['192.168.3.169','192.168.3.170','192.168.3.171']
-port_cnt=100000
+port_cnt=10000
 max_port_per_hosts=12
-access_key=''
-secret_key =''
+access_key='9YUURK872PWXYKX52H9P'
+secret_key ='39YrdVYMi0BXaf31wdou1viuGSc5iO2D0JYFSaTP'
 default_host ='192.168.3.169'
 default_port='10001'
+default_driver_port=18000
+
 def update_access(ss):
     return update_key_by_value(ss,'access_key',access_key)
 def update_s_key(ss):
@@ -73,29 +82,44 @@ with open(tmpl_path,"w+") as f:
     init_str =update_s_key(init_str)
     f.write(init_str)
     pre_str = pre_work
-    nw = work_desc
-    nw=update_access(nw)
-    nw =update_s_key(nw)
-    nw = set_name(nw,"prepare")
+    contain_start = 1
     pre_str = set_name(pre_str,'prepare')
-    pre_str = add_work(pre_str,nw)
+    driver_port =default_driver_port
+    for i in range(1,13):
+        nw = pre_work_unit
+        nw=update_access(nw)
+        nw =update_s_key(nw)
+        nw = update_key_by_value(nw,'host',default_host)
+        nw= update_key_by_value(nw,'port',str(driver_port))
+        nw = update_key_by_value(nw,"driver_name",'driver'+str(i))
+        nw = update_key_by_value(nw,'c_start',str(contain_start))
+        nw = update_key_by_value(nw,'c_end',str(contain_start+60))
+        driver_port = driver_port+10
+        pre_str = add_work(pre_str,nw)
+        contain_start = contain_start+ 60
     pre_str = clean_work(pre_str)
     f.write(pre_str)
     
     load_str = pre_work
     load_str = update_key_by_value(load_str,'name','4k_get_test')
-    p = 10000
+    p = 10001
+    cnts=1
+    contain_start = 1
     for h in hosts:
-
-        nw = work_desc
-        nw = update_access(nw)
-        nw = update_s_key(nw)
-        nw = update_key_by_value(nw,'name','get_1')
-        nw = update_key_by_value(nw,'worker_num','2')
-        nw = update_key_by_value(nw,'host',h)
-        nw = update_key_by_value(nw,'port',str(p))
-        p=p+1
-        load_str = add_work(load_str,nw)
+        for i in range(12):
+            nw = work_desc
+            nw = update_access(nw)
+            nw = update_s_key(nw)
+            nw = update_key_by_value(nw,'name','get'+str(cnts))
+            nw = update_key_by_value(nw,'worker_num','2')
+            nw = update_key_by_value(nw,'host',h)
+            nw = update_key_by_value(nw,'port',str(p))
+            nw= update_key_by_value(nw,'c_start',str(contain_start))
+            nw =update_key_by_value(nw,'c_end',str(contain_start+10))
+            p=p+1
+            cnts=cnts+1
+            contain_start=contain_start+10
+            load_str = add_work(load_str,nw)
     load_str = clean_work(load_str)
     f.write(load_str)
 
