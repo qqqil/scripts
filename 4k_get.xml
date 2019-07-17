@@ -1,0 +1,254 @@
+
+<?xml version="1.0" encoding="UTF-8" ?>
+<workload name="Test-rgw-01" description="Test rgw">
+    <workflow>
+
+		<workstage name="init">
+			<work name="init-01" type="init" workers="1" driver="driver1" config="cprefix=test;containers=r(1,360)">
+				<storage type="s3" config="accesskey=9YUURK872PWXYKX52H9P;secretkey=39YrdVYMi0BXaf31wdou1viuGSc5iO2D0JYFSaTP;endpoint=http://192.168.3.169:10001;"/>
+			</work>
+		</workstage>
+ 		<workstage name="prepare">			
+             <work type="prepare" workers="2" driver="driver1" config="cprefix=test;oprefix=rgwobject;containers=r(1,61);objects=r(1,1000);sizes=c(4)KB" >
+				<storage type="s3" config="accesskey=9YUURK872PWXYKX52H9P;secretkey=39YrdVYMi0BXaf31wdou1viuGSc5iO2D0JYFSaTP;endpoint=http://192.168.3.169:18000;"/>
+			</work>
+             <work type="prepare" workers="2" driver="driver2" config="cprefix=test;oprefix=rgwobject;containers=r(61,121);objects=r(1,1000);sizes=c(4)KB" >
+				<storage type="s3" config="accesskey=9YUURK872PWXYKX52H9P;secretkey=39YrdVYMi0BXaf31wdou1viuGSc5iO2D0JYFSaTP;endpoint=http://192.168.3.169:18010;"/>
+			</work>
+             <work type="prepare" workers="2" driver="driver3" config="cprefix=test;oprefix=rgwobject;containers=r(121,181);objects=r(1,1000);sizes=c(4)KB" >
+				<storage type="s3" config="accesskey=9YUURK872PWXYKX52H9P;secretkey=39YrdVYMi0BXaf31wdou1viuGSc5iO2D0JYFSaTP;endpoint=http://192.168.3.169:18020;"/>
+			</work>
+             <work type="prepare" workers="2" driver="driver4" config="cprefix=test;oprefix=rgwobject;containers=r(181,241);objects=r(1,1000);sizes=c(4)KB" >
+				<storage type="s3" config="accesskey=9YUURK872PWXYKX52H9P;secretkey=39YrdVYMi0BXaf31wdou1viuGSc5iO2D0JYFSaTP;endpoint=http://192.168.3.169:18030;"/>
+			</work>
+             <work type="prepare" workers="2" driver="driver5" config="cprefix=test;oprefix=rgwobject;containers=r(241,301);objects=r(1,1000);sizes=c(4)KB" >
+				<storage type="s3" config="accesskey=9YUURK872PWXYKX52H9P;secretkey=39YrdVYMi0BXaf31wdou1viuGSc5iO2D0JYFSaTP;endpoint=http://192.168.3.169:18040;"/>
+			</work>
+             <work type="prepare" workers="2" driver="driver6" config="cprefix=test;oprefix=rgwobject;containers=r(301,361);objects=r(1,1000);sizes=c(4)KB" >
+				<storage type="s3" config="accesskey=9YUURK872PWXYKX52H9P;secretkey=39YrdVYMi0BXaf31wdou1viuGSc5iO2D0JYFSaTP;endpoint=http://192.168.3.169:18050;"/>
+			</work>
+             <work type="prepare" workers="2" driver="driver7" config="cprefix=test;oprefix=rgwobject;containers=r(361,421);objects=r(1,1000);sizes=c(4)KB" >
+				<storage type="s3" config="accesskey=9YUURK872PWXYKX52H9P;secretkey=39YrdVYMi0BXaf31wdou1viuGSc5iO2D0JYFSaTP;endpoint=http://192.168.3.169:18060;"/>
+			</work>
+             <work type="prepare" workers="2" driver="driver8" config="cprefix=test;oprefix=rgwobject;containers=r(421,481);objects=r(1,1000);sizes=c(4)KB" >
+				<storage type="s3" config="accesskey=9YUURK872PWXYKX52H9P;secretkey=39YrdVYMi0BXaf31wdou1viuGSc5iO2D0JYFSaTP;endpoint=http://192.168.3.169:18070;"/>
+			</work>
+             <work type="prepare" workers="2" driver="driver9" config="cprefix=test;oprefix=rgwobject;containers=r(481,541);objects=r(1,1000);sizes=c(4)KB" >
+				<storage type="s3" config="accesskey=9YUURK872PWXYKX52H9P;secretkey=39YrdVYMi0BXaf31wdou1viuGSc5iO2D0JYFSaTP;endpoint=http://192.168.3.169:18080;"/>
+			</work>
+             <work type="prepare" workers="2" driver="driver10" config="cprefix=test;oprefix=rgwobject;containers=r(541,601);objects=r(1,1000);sizes=c(4)KB" >
+				<storage type="s3" config="accesskey=9YUURK872PWXYKX52H9P;secretkey=39YrdVYMi0BXaf31wdou1viuGSc5iO2D0JYFSaTP;endpoint=http://192.168.3.169:18090;"/>
+			</work>
+             <work type="prepare" workers="2" driver="driver11" config="cprefix=test;oprefix=rgwobject;containers=r(601,661);objects=r(1,1000);sizes=c(4)KB" >
+				<storage type="s3" config="accesskey=9YUURK872PWXYKX52H9P;secretkey=39YrdVYMi0BXaf31wdou1viuGSc5iO2D0JYFSaTP;endpoint=http://192.168.3.169:18100;"/>
+			</work>
+             <work type="prepare" workers="2" driver="driver12" config="cprefix=test;oprefix=rgwobject;containers=r(661,721);objects=r(1,1000);sizes=c(4)KB" >
+				<storage type="s3" config="accesskey=9YUURK872PWXYKX52H9P;secretkey=39YrdVYMi0BXaf31wdou1viuGSc5iO2D0JYFSaTP;endpoint=http://192.168.3.169:18110;"/>
+			</work>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+		</workstage>
+ 		<workstage name="4k_get_test">			
+             <work name="get1" workers="2" runtime="300">
+				<storage type="s3" config="accesskey=9YUURK872PWXYKX52H9P;secretkey=39YrdVYMi0BXaf31wdou1viuGSc5iO2D0JYFSaTP;endpoint=http://192.168.3.169:10001" />
+				<operation type="read" ratio="100" config="cprefix=test;oprefix=rgwobject;containers=r(1,11);objects=r(1,1000)" />
+			</work>
+             <work name="get2" workers="2" runtime="300">
+				<storage type="s3" config="accesskey=9YUURK872PWXYKX52H9P;secretkey=39YrdVYMi0BXaf31wdou1viuGSc5iO2D0JYFSaTP;endpoint=http://192.168.3.169:10002" />
+				<operation type="read" ratio="100" config="cprefix=test;oprefix=rgwobject;containers=r(11,21);objects=r(1,1000)" />
+			</work>
+             <work name="get3" workers="2" runtime="300">
+				<storage type="s3" config="accesskey=9YUURK872PWXYKX52H9P;secretkey=39YrdVYMi0BXaf31wdou1viuGSc5iO2D0JYFSaTP;endpoint=http://192.168.3.169:10003" />
+				<operation type="read" ratio="100" config="cprefix=test;oprefix=rgwobject;containers=r(21,31);objects=r(1,1000)" />
+			</work>
+             <work name="get4" workers="2" runtime="300">
+				<storage type="s3" config="accesskey=9YUURK872PWXYKX52H9P;secretkey=39YrdVYMi0BXaf31wdou1viuGSc5iO2D0JYFSaTP;endpoint=http://192.168.3.169:10004" />
+				<operation type="read" ratio="100" config="cprefix=test;oprefix=rgwobject;containers=r(31,41);objects=r(1,1000)" />
+			</work>
+             <work name="get5" workers="2" runtime="300">
+				<storage type="s3" config="accesskey=9YUURK872PWXYKX52H9P;secretkey=39YrdVYMi0BXaf31wdou1viuGSc5iO2D0JYFSaTP;endpoint=http://192.168.3.169:10005" />
+				<operation type="read" ratio="100" config="cprefix=test;oprefix=rgwobject;containers=r(41,51);objects=r(1,1000)" />
+			</work>
+             <work name="get6" workers="2" runtime="300">
+				<storage type="s3" config="accesskey=9YUURK872PWXYKX52H9P;secretkey=39YrdVYMi0BXaf31wdou1viuGSc5iO2D0JYFSaTP;endpoint=http://192.168.3.169:10006" />
+				<operation type="read" ratio="100" config="cprefix=test;oprefix=rgwobject;containers=r(51,61);objects=r(1,1000)" />
+			</work>
+             <work name="get7" workers="2" runtime="300">
+				<storage type="s3" config="accesskey=9YUURK872PWXYKX52H9P;secretkey=39YrdVYMi0BXaf31wdou1viuGSc5iO2D0JYFSaTP;endpoint=http://192.168.3.169:10007" />
+				<operation type="read" ratio="100" config="cprefix=test;oprefix=rgwobject;containers=r(61,71);objects=r(1,1000)" />
+			</work>
+             <work name="get8" workers="2" runtime="300">
+				<storage type="s3" config="accesskey=9YUURK872PWXYKX52H9P;secretkey=39YrdVYMi0BXaf31wdou1viuGSc5iO2D0JYFSaTP;endpoint=http://192.168.3.169:10008" />
+				<operation type="read" ratio="100" config="cprefix=test;oprefix=rgwobject;containers=r(71,81);objects=r(1,1000)" />
+			</work>
+             <work name="get9" workers="2" runtime="300">
+				<storage type="s3" config="accesskey=9YUURK872PWXYKX52H9P;secretkey=39YrdVYMi0BXaf31wdou1viuGSc5iO2D0JYFSaTP;endpoint=http://192.168.3.169:10009" />
+				<operation type="read" ratio="100" config="cprefix=test;oprefix=rgwobject;containers=r(81,91);objects=r(1,1000)" />
+			</work>
+             <work name="get10" workers="2" runtime="300">
+				<storage type="s3" config="accesskey=9YUURK872PWXYKX52H9P;secretkey=39YrdVYMi0BXaf31wdou1viuGSc5iO2D0JYFSaTP;endpoint=http://192.168.3.169:10010" />
+				<operation type="read" ratio="100" config="cprefix=test;oprefix=rgwobject;containers=r(91,101);objects=r(1,1000)" />
+			</work>
+             <work name="get11" workers="2" runtime="300">
+				<storage type="s3" config="accesskey=9YUURK872PWXYKX52H9P;secretkey=39YrdVYMi0BXaf31wdou1viuGSc5iO2D0JYFSaTP;endpoint=http://192.168.3.169:10011" />
+				<operation type="read" ratio="100" config="cprefix=test;oprefix=rgwobject;containers=r(101,111);objects=r(1,1000)" />
+			</work>
+             <work name="get12" workers="2" runtime="300">
+				<storage type="s3" config="accesskey=9YUURK872PWXYKX52H9P;secretkey=39YrdVYMi0BXaf31wdou1viuGSc5iO2D0JYFSaTP;endpoint=http://192.168.3.169:10012" />
+				<operation type="read" ratio="100" config="cprefix=test;oprefix=rgwobject;containers=r(111,121);objects=r(1,1000)" />
+			</work>
+             <work name="get13" workers="2" runtime="300">
+				<storage type="s3" config="accesskey=9YUURK872PWXYKX52H9P;secretkey=39YrdVYMi0BXaf31wdou1viuGSc5iO2D0JYFSaTP;endpoint=http://192.168.3.170:10013" />
+				<operation type="read" ratio="100" config="cprefix=test;oprefix=rgwobject;containers=r(121,131);objects=r(1,1000)" />
+			</work>
+             <work name="get14" workers="2" runtime="300">
+				<storage type="s3" config="accesskey=9YUURK872PWXYKX52H9P;secretkey=39YrdVYMi0BXaf31wdou1viuGSc5iO2D0JYFSaTP;endpoint=http://192.168.3.170:10014" />
+				<operation type="read" ratio="100" config="cprefix=test;oprefix=rgwobject;containers=r(131,141);objects=r(1,1000)" />
+			</work>
+             <work name="get15" workers="2" runtime="300">
+				<storage type="s3" config="accesskey=9YUURK872PWXYKX52H9P;secretkey=39YrdVYMi0BXaf31wdou1viuGSc5iO2D0JYFSaTP;endpoint=http://192.168.3.170:10015" />
+				<operation type="read" ratio="100" config="cprefix=test;oprefix=rgwobject;containers=r(141,151);objects=r(1,1000)" />
+			</work>
+             <work name="get16" workers="2" runtime="300">
+				<storage type="s3" config="accesskey=9YUURK872PWXYKX52H9P;secretkey=39YrdVYMi0BXaf31wdou1viuGSc5iO2D0JYFSaTP;endpoint=http://192.168.3.170:10016" />
+				<operation type="read" ratio="100" config="cprefix=test;oprefix=rgwobject;containers=r(151,161);objects=r(1,1000)" />
+			</work>
+             <work name="get17" workers="2" runtime="300">
+				<storage type="s3" config="accesskey=9YUURK872PWXYKX52H9P;secretkey=39YrdVYMi0BXaf31wdou1viuGSc5iO2D0JYFSaTP;endpoint=http://192.168.3.170:10017" />
+				<operation type="read" ratio="100" config="cprefix=test;oprefix=rgwobject;containers=r(161,171);objects=r(1,1000)" />
+			</work>
+             <work name="get18" workers="2" runtime="300">
+				<storage type="s3" config="accesskey=9YUURK872PWXYKX52H9P;secretkey=39YrdVYMi0BXaf31wdou1viuGSc5iO2D0JYFSaTP;endpoint=http://192.168.3.170:10018" />
+				<operation type="read" ratio="100" config="cprefix=test;oprefix=rgwobject;containers=r(171,181);objects=r(1,1000)" />
+			</work>
+             <work name="get19" workers="2" runtime="300">
+				<storage type="s3" config="accesskey=9YUURK872PWXYKX52H9P;secretkey=39YrdVYMi0BXaf31wdou1viuGSc5iO2D0JYFSaTP;endpoint=http://192.168.3.170:10019" />
+				<operation type="read" ratio="100" config="cprefix=test;oprefix=rgwobject;containers=r(181,191);objects=r(1,1000)" />
+			</work>
+             <work name="get20" workers="2" runtime="300">
+				<storage type="s3" config="accesskey=9YUURK872PWXYKX52H9P;secretkey=39YrdVYMi0BXaf31wdou1viuGSc5iO2D0JYFSaTP;endpoint=http://192.168.3.170:10020" />
+				<operation type="read" ratio="100" config="cprefix=test;oprefix=rgwobject;containers=r(191,201);objects=r(1,1000)" />
+			</work>
+             <work name="get21" workers="2" runtime="300">
+				<storage type="s3" config="accesskey=9YUURK872PWXYKX52H9P;secretkey=39YrdVYMi0BXaf31wdou1viuGSc5iO2D0JYFSaTP;endpoint=http://192.168.3.170:10021" />
+				<operation type="read" ratio="100" config="cprefix=test;oprefix=rgwobject;containers=r(201,211);objects=r(1,1000)" />
+			</work>
+             <work name="get22" workers="2" runtime="300">
+				<storage type="s3" config="accesskey=9YUURK872PWXYKX52H9P;secretkey=39YrdVYMi0BXaf31wdou1viuGSc5iO2D0JYFSaTP;endpoint=http://192.168.3.170:10022" />
+				<operation type="read" ratio="100" config="cprefix=test;oprefix=rgwobject;containers=r(211,221);objects=r(1,1000)" />
+			</work>
+             <work name="get23" workers="2" runtime="300">
+				<storage type="s3" config="accesskey=9YUURK872PWXYKX52H9P;secretkey=39YrdVYMi0BXaf31wdou1viuGSc5iO2D0JYFSaTP;endpoint=http://192.168.3.170:10023" />
+				<operation type="read" ratio="100" config="cprefix=test;oprefix=rgwobject;containers=r(221,231);objects=r(1,1000)" />
+			</work>
+             <work name="get24" workers="2" runtime="300">
+				<storage type="s3" config="accesskey=9YUURK872PWXYKX52H9P;secretkey=39YrdVYMi0BXaf31wdou1viuGSc5iO2D0JYFSaTP;endpoint=http://192.168.3.170:10024" />
+				<operation type="read" ratio="100" config="cprefix=test;oprefix=rgwobject;containers=r(231,241);objects=r(1,1000)" />
+			</work>
+             <work name="get25" workers="2" runtime="300">
+				<storage type="s3" config="accesskey=9YUURK872PWXYKX52H9P;secretkey=39YrdVYMi0BXaf31wdou1viuGSc5iO2D0JYFSaTP;endpoint=http://192.168.3.171:10025" />
+				<operation type="read" ratio="100" config="cprefix=test;oprefix=rgwobject;containers=r(241,251);objects=r(1,1000)" />
+			</work>
+             <work name="get26" workers="2" runtime="300">
+				<storage type="s3" config="accesskey=9YUURK872PWXYKX52H9P;secretkey=39YrdVYMi0BXaf31wdou1viuGSc5iO2D0JYFSaTP;endpoint=http://192.168.3.171:10026" />
+				<operation type="read" ratio="100" config="cprefix=test;oprefix=rgwobject;containers=r(251,261);objects=r(1,1000)" />
+			</work>
+             <work name="get27" workers="2" runtime="300">
+				<storage type="s3" config="accesskey=9YUURK872PWXYKX52H9P;secretkey=39YrdVYMi0BXaf31wdou1viuGSc5iO2D0JYFSaTP;endpoint=http://192.168.3.171:10027" />
+				<operation type="read" ratio="100" config="cprefix=test;oprefix=rgwobject;containers=r(261,271);objects=r(1,1000)" />
+			</work>
+             <work name="get28" workers="2" runtime="300">
+				<storage type="s3" config="accesskey=9YUURK872PWXYKX52H9P;secretkey=39YrdVYMi0BXaf31wdou1viuGSc5iO2D0JYFSaTP;endpoint=http://192.168.3.171:10028" />
+				<operation type="read" ratio="100" config="cprefix=test;oprefix=rgwobject;containers=r(271,281);objects=r(1,1000)" />
+			</work>
+             <work name="get29" workers="2" runtime="300">
+				<storage type="s3" config="accesskey=9YUURK872PWXYKX52H9P;secretkey=39YrdVYMi0BXaf31wdou1viuGSc5iO2D0JYFSaTP;endpoint=http://192.168.3.171:10029" />
+				<operation type="read" ratio="100" config="cprefix=test;oprefix=rgwobject;containers=r(281,291);objects=r(1,1000)" />
+			</work>
+             <work name="get30" workers="2" runtime="300">
+				<storage type="s3" config="accesskey=9YUURK872PWXYKX52H9P;secretkey=39YrdVYMi0BXaf31wdou1viuGSc5iO2D0JYFSaTP;endpoint=http://192.168.3.171:10030" />
+				<operation type="read" ratio="100" config="cprefix=test;oprefix=rgwobject;containers=r(291,301);objects=r(1,1000)" />
+			</work>
+             <work name="get31" workers="2" runtime="300">
+				<storage type="s3" config="accesskey=9YUURK872PWXYKX52H9P;secretkey=39YrdVYMi0BXaf31wdou1viuGSc5iO2D0JYFSaTP;endpoint=http://192.168.3.171:10031" />
+				<operation type="read" ratio="100" config="cprefix=test;oprefix=rgwobject;containers=r(301,311);objects=r(1,1000)" />
+			</work>
+             <work name="get32" workers="2" runtime="300">
+				<storage type="s3" config="accesskey=9YUURK872PWXYKX52H9P;secretkey=39YrdVYMi0BXaf31wdou1viuGSc5iO2D0JYFSaTP;endpoint=http://192.168.3.171:10032" />
+				<operation type="read" ratio="100" config="cprefix=test;oprefix=rgwobject;containers=r(311,321);objects=r(1,1000)" />
+			</work>
+             <work name="get33" workers="2" runtime="300">
+				<storage type="s3" config="accesskey=9YUURK872PWXYKX52H9P;secretkey=39YrdVYMi0BXaf31wdou1viuGSc5iO2D0JYFSaTP;endpoint=http://192.168.3.171:10033" />
+				<operation type="read" ratio="100" config="cprefix=test;oprefix=rgwobject;containers=r(321,331);objects=r(1,1000)" />
+			</work>
+             <work name="get34" workers="2" runtime="300">
+				<storage type="s3" config="accesskey=9YUURK872PWXYKX52H9P;secretkey=39YrdVYMi0BXaf31wdou1viuGSc5iO2D0JYFSaTP;endpoint=http://192.168.3.171:10034" />
+				<operation type="read" ratio="100" config="cprefix=test;oprefix=rgwobject;containers=r(331,341);objects=r(1,1000)" />
+			</work>
+             <work name="get35" workers="2" runtime="300">
+				<storage type="s3" config="accesskey=9YUURK872PWXYKX52H9P;secretkey=39YrdVYMi0BXaf31wdou1viuGSc5iO2D0JYFSaTP;endpoint=http://192.168.3.171:10035" />
+				<operation type="read" ratio="100" config="cprefix=test;oprefix=rgwobject;containers=r(341,351);objects=r(1,1000)" />
+			</work>
+             <work name="get36" workers="2" runtime="300">
+				<storage type="s3" config="accesskey=9YUURK872PWXYKX52H9P;secretkey=39YrdVYMi0BXaf31wdou1viuGSc5iO2D0JYFSaTP;endpoint=http://192.168.3.171:10036" />
+				<operation type="read" ratio="100" config="cprefix=test;oprefix=rgwobject;containers=r(351,361);objects=r(1,1000)" />
+			</work>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+		</workstage>
+     	<workstage name="dispose" closuredelay="0" config="">
+			<auth type="none" config=""/>
+            <work name="dispose-1" type="dispose" workers="2" driver="driver1" interval="5" division="container" runtime="0" rampup="0" rampdown="0" afr="0" totalOps="1" totalBytes="0" config="cprefix=test;containers=r(1,360);">
+                <auth type="none" config=""/>
+                <storage type="s3" config="accesskey=9YUURK872PWXYKX52H9P;secretkey=39YrdVYMi0BXaf31wdou1viuGSc5iO2D0JYFSaTP;endpoint=http://192.168.3.169:10001;path_style_access=true"/>
+            </work>
+		</workstage>
+    
+    </workflow>
+</workload>	
